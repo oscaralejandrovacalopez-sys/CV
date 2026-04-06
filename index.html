@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Óscar Alejandro Vaca López — CV</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Fonts: pirate-style serif + body font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CANVAS — animated ocean & particles
+  ═══════════════════════════════════════════ -->
+  <canvas id="ocean-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       CURSOR CUSTOM
+  ═══════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ═══════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="ship-wheel">&#9784;</div>
+      <p class="loader-text">Navegando a aguas profundas…</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="skull">☠</span>
+      <span class="nav-name">O.A.V.L.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about"     class="nav-link">Sobre Mí</a></li>
+      <li><a href="#skills"    class="nav-link">Habilidades</a></li>
+      <li><a href="#experience" class="nav-link">Experiencia</a></li>
+      <li><a href="#education" class="nav-link">Educación</a></li>
+      <li><a href="#contact"   class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-compass" id="nav-compass">&#10006;</div>
+    <!-- mobile menu -->
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <header id="hero">
+    <div class="fog fog-1"></div>
+    <div class="fog fog-2"></div>
+    <div class="fog fog-3"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">— Capitán de bits &amp; código —</p>
+      <h1 class="hero-title reveal">
+        <span class="line1">Óscar Alejandro</span>
+        <span class="line2">Vaca López</span>
+      </h1>
+      <p class="hero-subtitle reveal">Desarrollador de Software · [Tu Especialidad Aquí]</p>
+      <div class="hero-divider reveal">
+        <span class="rope-left"></span>
+        <span class="anchor">&#9875;</span>
+        <span class="rope-right"></span>
+      </div>
+      <div class="hero-cta reveal">
+        <a href="#about" class="btn btn-gold">Zarpar &#9654;</a>
+        <a href="#contact" class="btn btn-outline">Enviar Señal de Humo</a>
+      </div>
+    </div>
+
+    <div class="hero-ship" aria-hidden="true">
+      <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" class="ship-svg">
+        <!-- hull -->
+        <path d="M20 130 Q130 160 240 130 L220 155 Q130 175 40 155 Z" fill="#3b1f0a" stroke="#c9a227" stroke-width="1.5"/>
+        <!-- mast 1 -->
+        <line x1="90" y1="130" x2="90" y2="30" stroke="#5c3317" stroke-width="4"/>
+        <!-- sail 1 -->
+        <path d="M90 35 L140 55 L90 100 Z" fill="#f4e4c1" opacity="0.85"/>
+        <!-- skull on sail 1 -->
+        <text x="100" y="75" font-size="20" fill="#1a1a2e" text-anchor="middle">☠</text>
+        <!-- mast 2 -->
+        <line x1="155" y1="130" x2="155" y2="50" stroke="#5c3317" stroke-width="3.5"/>
+        <!-- sail 2 -->
+        <path d="M155 55 L198 70 L155 108 Z" fill="#f4e4c1" opacity="0.80"/>
+        <!-- flag -->
+        <rect x="90" y="28" width="30" height="18" fill="#0a0a0a" rx="1"/>
+        <text x="105" y="41" font-size="11" fill="#c9a227" text-anchor="middle">☠</text>
+        <!-- waves under hull -->
+        <path d="M15 148 Q50 143 85 148 Q120 153 155 148 Q190 143 225 148" fill="none" stroke="#2c5f6e" stroke-width="2" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>&#8595;</span>
+      <span class="scroll-text">Descubrir el Tesoro</span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION — ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="section-bg-deco" aria-hidden="true">&#9875;</div>
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="title-deco">☠</span> El Marinero <span class="title-deco">☠</span>
+      </h2>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="photo-frame">
+            <div class="photo-placeholder">
+              <!-- Reemplaza con tu foto: <img src="img/foto.jpg" alt="Óscar Vaca" /> -->
+              <div class="photo-icon">&#9784;</div>
+              <p>Tu Foto Aquí</p>
+            </div>
+            <div class="photo-corner tl"></div>
+            <div class="photo-corner tr"></div>
+            <div class="photo-corner bl"></div>
+            <div class="photo-corner br"></div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p class="about-intro">
+            Bienvenido a bordo, intrépido reclutador. Soy <strong>Óscar Alejandro Vaca López</strong>,
+            desarrollador de software con pasión por crear soluciones robustas y elegantes.
+            Como Jack Sparrow navega los mares del Caribe, yo navego el vasto océano del código
+            con creatividad, determinación y —quizá— un poco de caos organizado.
+          </p>
+          <p>
+            [Aquí irá una descripción más detallada de ti, tus valores profesionales,
+            tu filosofía de trabajo y lo que te hace único como profesional.]
+          </p>
+          <ul class="about-info">
+            <li><span class="info-icon">&#9830;</span> <strong>Ubicación:</strong> [Tu Ciudad, País]</li>
+            <li><span class="info-icon">&#9830;</span> <strong>Email:</strong> tu@email.com</li>
+            <li><span class="info-icon">&#9830;</span> <strong>Teléfono:</strong> +52 000 000 0000</li>
+            <li><span class="info-icon">&#9830;</span> <strong>LinkedIn:</strong> linkedin.com/in/tu-perfil</li>
+            <li><span class="info-icon">&#9830;</span> <strong>GitHub:</strong> github.com/oscaralejandrovacalopez-sys</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold">Contactar al Capitán</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION — SKILLS
+  ═══════════════════════════════════════════ -->
+  <section id="skills" class="section section-dark">
+    <div class="section-bg-deco" aria-hidden="true">&#9784;</div>
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="title-deco">⚓</span> Arsenal del Capitán <span class="title-deco">⚓</span>
+      </h2>
+      <p class="section-subtitle reveal">Las armas que cargo en mi barco</p>
+
+      <div class="skills-grid">
+
+        <!-- Skill category 1 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">⚔</div>
+          <h3>Frontend</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">HTML5 / CSS3</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">[Framework Frontend]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill category 2 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">&#9875;</div>
+          <h3>Backend</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">[Lenguaje Backend]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="82"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">[Framework Backend]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">REST APIs</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="88"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill category 3 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">&#128190;</div>
+          <h3>Bases de Datos</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">[Base de datos SQL]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">[Base de datos NoSQL]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Skill category 4 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">&#127758;</div>
+          <h3>DevOps &amp; Herramientas</h3>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">Git / GitHub</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="88"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">[CI/CD / Cloud]</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="72"></div></div>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">Docker</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="68"></div></div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Soft skills -->
+      <div class="soft-skills reveal">
+        <h3 class="soft-skills-title">Virtudes del Buen Pirata</h3>
+        <div class="tag-cloud">
+          <span class="tag">Liderazgo</span>
+          <span class="tag">Trabajo en equipo</span>
+          <span class="tag">Resolución de problemas</span>
+          <span class="tag">Comunicación</span>
+          <span class="tag">Aprendizaje continuo</span>
+          <span class="tag">Adaptabilidad</span>
+          <span class="tag">Creatividad</span>
+          <span class="tag">Gestión del tiempo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION — EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="section-bg-deco" aria-hidden="true">&#9812;</div>
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="title-deco">⚓</span> Bitácora de Viajes <span class="title-deco">⚓</span>
+      </h2>
+      <p class="section-subtitle reveal">Las travesías que me han forjado</p>
+
+      <div class="timeline">
+
+        <!-- Job 1 (most recent) -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">&#9830;</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="job-title">[Título del Puesto]</h3>
+              <span class="job-date">Mes AAAA — Presente</span>
+            </div>
+            <h4 class="job-company">&#9875; [Nombre de la Empresa]</h4>
+            <p class="job-location">&#9830; [Ciudad, País]</p>
+            <ul class="job-duties">
+              <li>Desarrollé [descripción de logro o responsabilidad principal].</li>
+              <li>Implementé [tecnología / solución] reduciendo [métrica] en [X]%.</li>
+              <li>Colaboré con equipos multidisciplinarios para [objetivo].</li>
+              <li>[Añade más logros relevantes con impacto cuantificable].</li>
+            </ul>
+            <div class="job-tags">
+              <span class="tag-sm">[Tech 1]</span>
+              <span class="tag-sm">[Tech 2]</span>
+              <span class="tag-sm">[Tech 3]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">&#9830;</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="job-title">[Título del Puesto]</h3>
+              <span class="job-date">Mes AAAA — Mes AAAA</span>
+            </div>
+            <h4 class="job-company">&#9875; [Nombre de la Empresa]</h4>
+            <p class="job-location">&#9830; [Ciudad, País]</p>
+            <ul class="job-duties">
+              <li>[Logro o responsabilidad principal].</li>
+              <li>[Logro o responsabilidad secundaria].</li>
+              <li>[Otro logro relevante].</li>
+            </ul>
+            <div class="job-tags">
+              <span class="tag-sm">[Tech 1]</span>
+              <span class="tag-sm">[Tech 2]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">&#9830;</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="job-title">[Título del Puesto]</h3>
+              <span class="job-date">Mes AAAA — Mes AAAA</span>
+            </div>
+            <h4 class="job-company">&#9875; [Nombre de la Empresa]</h4>
+            <p class="job-location">&#9830; [Ciudad, País]</p>
+            <ul class="job-duties">
+              <li>[Logro o responsabilidad].</li>
+              <li>[Logro o responsabilidad].</li>
+            </ul>
+            <div class="job-tags">
+              <span class="tag-sm">[Tech 1]</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION — EDUCATION
+  ═══════════════════════════════════════════ -->
+  <section id="education" class="section section-dark">
+    <div class="section-bg-deco" aria-hidden="true">&#9997;</div>
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="title-deco">☠</span> Pergaminos &amp; Conocimiento <span class="title-deco">☠</span>
+      </h2>
+      <p class="section-subtitle reveal">Los mapas que guiaron mi formación</p>
+
+      <div class="education-grid">
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">&#127891;</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">[Grado / Título]</h3>
+            <h4 class="edu-school">[Nombre de la Institución]</h4>
+            <p class="edu-date">AAAA — AAAA</p>
+            <p class="edu-desc">[Especialidad, mención honorífica, o proyectos relevantes realizados durante los estudios.]</p>
+          </div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">&#128218;</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">[Certificación / Curso]</h3>
+            <h4 class="edu-school">[Plataforma / Institución]</h4>
+            <p class="edu-date">AAAA</p>
+            <p class="edu-desc">[Descripción breve de la certificación y habilidades adquiridas.]</p>
+          </div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon">&#127942;</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">[Otra Certificación / Logro Académico]</h3>
+            <h4 class="edu-school">[Institución]</h4>
+            <p class="edu-date">AAAA</p>
+            <p class="edu-desc">[Descripción del logro o certificación adicional.]</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION — CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="section-bg-deco" aria-hidden="true">&#9993;</div>
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="title-deco">⚓</span> Envía tu Mensaje en Botella <span class="title-deco">⚓</span>
+      </h2>
+      <p class="section-subtitle reveal">¿Listo para zarpar juntos?</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>¡Hablemos, compadre!</h3>
+          <p>Si tienes una misión que requiere de mis habilidades, no dudes en lanzar tu mensaje al mar. Respondo antes de que acabe la marea.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon">&#9993;</span>
+              <a href="mailto:tu@email.com">tu@email.com</a>
+            </li>
+            <li>
+              <span class="contact-icon">&#9742;</span>
+              <a href="tel:+520000000000">+52 000 000 0000</a>
+            </li>
+            <li>
+              <span class="contact-icon">&#127758;</span>
+              <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+            <li>
+              <span class="contact-icon">&#9830;</span>
+              <a href="https://github.com/oscaralejandrovacalopez-sys" target="_blank" rel="noopener">GitHub</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Tu Nombre, Marinero</label>
+            <input type="text" id="name" name="name" placeholder="Capitán Ejemplo" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Tu Paloma Mensajera (email)</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Asunto del Pergamino</label>
+            <input type="text" id="subject" name="subject" placeholder="Oferta de trabajo / Proyecto / Saludo" />
+          </div>
+          <div class="form-group">
+            <label for="message">Tu Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full">
+            <span class="btn-text">Lanzar Mensaje al Mar &#9993;</span>
+            <span class="btn-sending" style="display:none">Enviando… &#9784;</span>
+          </button>
+          <p class="form-note">* Este formulario es una demo visual. Conecta con un servicio de email (Formspree, EmailJS, etc.) para hacerlo funcional.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#0d1b2a"/>
+      </svg>
+    </div>
+    <div class="footer-content">
+      <p class="footer-quote">
+        <em>"No es el destino lo que importa, sino el viaje."</em>
+        — inspirado en Piratas del Caribe
+      </p>
+      <div class="footer-links">
+        <a href="#hero">Inicio</a>
+        <a href="#about">Sobre Mí</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#contact">Contacto</a>
+      </div>
+      <p class="footer-copy">
+        &#9784; &copy; <span id="year"></span> Óscar Alejandro Vaca López · Todos los derechos reservados · Hecho con &#9829; y rum
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -285,7 +285,7 @@
 (function initReveal() {
   const io = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // stagger siblings
           const siblings = entry.target.parentElement

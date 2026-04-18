@@ -12,8 +12,14 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet"
   />
+  <!-- Tailwind CSS CDN (preflight disabled to preserve pirate theme) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { corePlugins: { preflight: false } }</script>
 </head>
 <body>
+
+  <!-- Page scroll progress bar -->
+  <div id="progress-bar" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════════
        CANVAS — animated ocean & particles
@@ -82,9 +88,44 @@
         <a href="#about" class="btn btn-gold">Zarpar &#9654;</a>
         <a href="#contact" class="btn btn-outline">Enviar Señal de Humo</a>
       </div>
-      <div class="hero-cta reveal">
-        <a href="pdf/CV-Oscar-Vaca-ES.pdf" class="btn btn-gold" download>Descargar CV (ES) PDF</a>
-        <a href="pdf/CV-Oscar-Vaca-EN.pdf" class="btn btn-outline" download>Download CV (EN) PDF</a>
+      <div class="pdf-download-strip reveal flex flex-wrap items-center justify-center gap-4 mx-auto">
+        <div class="pdf-download-card flex items-center gap-3">
+          <svg class="pdf-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 2h22l10 10v34H6V2z" fill="rgba(201,162,39,0.08)" stroke="#c9a227" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M28 2v10h10" fill="none" stroke="#c9a227" stroke-width="1.5" stroke-linejoin="round"/>
+            <text x="9" y="38" fill="#c9a227" font-size="8" font-family="Arial,sans-serif" font-weight="700">PDF</text>
+            <line x1="9" y1="28" x2="31" y2="28" stroke="rgba(201,162,39,0.35)" stroke-width="1"/>
+            <line x1="9" y1="32" x2="27" y2="32" stroke="rgba(201,162,39,0.25)" stroke-width="1"/>
+          </svg>
+          <div class="pdf-info flex flex-col">
+            <span class="pdf-flag">&#127474;&#127485;</span>
+            <span class="pdf-label">Curriculum Vitae</span>
+            <span class="pdf-lang-badge">Espa&ntilde;ol</span>
+          </div>
+          <a href="pdf/CV-Oscar-Vaca-ES.pdf" class="btn btn-gold pdf-download-btn" download aria-label="Descargar CV en Espa&ntilde;ol PDF">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar
+          </a>
+        </div>
+        <span class="pdf-divider" aria-hidden="true">&#9830;</span>
+        <div class="pdf-download-card flex items-center gap-3">
+          <svg class="pdf-file-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 2h22l10 10v34H6V2z" fill="rgba(44,95,110,0.15)" stroke="#3a7d8c" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M28 2v10h10" fill="none" stroke="#3a7d8c" stroke-width="1.5" stroke-linejoin="round"/>
+            <text x="9" y="38" fill="#3a7d8c" font-size="8" font-family="Arial,sans-serif" font-weight="700">PDF</text>
+            <line x1="9" y1="28" x2="31" y2="28" stroke="rgba(44,95,110,0.4)" stroke-width="1"/>
+            <line x1="9" y1="32" x2="27" y2="32" stroke="rgba(44,95,110,0.3)" stroke-width="1"/>
+          </svg>
+          <div class="pdf-info flex flex-col">
+            <span class="pdf-flag">&#127482;&#127480;</span>
+            <span class="pdf-label">Curriculum Vitae</span>
+            <span class="pdf-lang-badge pdf-lang-en">English</span>
+          </div>
+          <a href="pdf/CV-Oscar-Vaca-EN.pdf" class="btn btn-outline pdf-download-btn" download aria-label="Download CV in English PDF">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
       </div>
     </div>
 
@@ -126,12 +167,10 @@
         <span class="title-deco">☠</span> El Marinero <span class="title-deco">☠</span>
       </h2>
       <div class="about-grid">
-        <div class="about-photo reveal">
+        <div class="about-photo reveal reveal-left">
           <div class="photo-frame">
             <div class="photo-placeholder">
-              <!-- Reemplaza con tu foto: <img src="img/carpeta/foto.jpg" alt="Óscar Vaca" /> -->
-              <div class="photo-icon">&#9784;</div>
-              <p>Espacio para tu foto<br />(carpeta: img/carpeta)</p>
+              <img src="img/Yo.jpg" alt="Oscar Vaca" />
             </div>
             <div class="photo-corner tl"></div>
             <div class="photo-corner tr"></div>
@@ -139,7 +178,7 @@
             <div class="photo-corner br"></div>
           </div>
         </div>
-        <div class="about-text reveal">
+        <div class="about-text reveal reveal-right">
           <p class="about-intro">
             Bienvenido a bordo. Soy <strong>Óscar Alejandro Vaca López</strong>, Ingeniero en Sistemas con perfil
             IT orientado a operación, soporte y mejora continua. Me especializo en mantener la infraestructura
@@ -152,10 +191,10 @@
             alineadas al negocio.
           </p>
           <ul class="about-info">
-            <li><span class="info-icon">&#9830;</span> <strong>Ubicación:</strong> México</li>
-            <li><span class="info-icon">&#9830;</span> <strong>Email:</strong> tu@email.com</li>
-            <li><span class="info-icon">&#9830;</span> <strong>Teléfono:</strong> +52 000 000 0000</li>
-            <li><span class="info-icon">&#9830;</span> <strong>LinkedIn:</strong> linkedin.com/in/tu-perfil</li>
+            <li><span class="info-icon">&#9830;</span> <strong>Ubicación:</strong> Irapuato, Guanajuato, México</li>
+            <li><span class="info-icon">&#9830;</span> <strong>Email:</strong> oscaralejandrovacalopez@gmail.com</li>
+            <li><span class="info-icon">&#9830;</span> <strong>Teléfono:</strong> +52 462 100 9235</li>
+            <li><span class="info-icon">&#9830;</span> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/oscar-alejandro-vaca-lopez-90b275326/" target="_blank" rel="noopener">oscar-alejandro-vaca-lopez</a></li>
             <li><span class="info-icon">&#9830;</span> <strong>GitHub:</strong> github.com/oscaralejandrovacalopez-sys</li>
           </ul>
           <a href="#contact" class="btn btn-gold">Contactar al Capitán</a>
@@ -191,8 +230,8 @@
               <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
             </li>
             <li class="skill-item">
-              <span class="skill-name">[Framework Frontend]</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+              <span class="skill-name">PHP</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
             </li>
           </ul>
         </div>
@@ -203,12 +242,12 @@
           <h3>Backend</h3>
           <ul class="skill-list">
             <li class="skill-item">
-              <span class="skill-name">[Lenguaje Backend]</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="82"></div></div>
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
             </li>
             <li class="skill-item">
-              <span class="skill-name">[Framework Backend]</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
+              <span class="skill-name">Odoo / ERPs</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="45"></div></div>
             </li>
             <li class="skill-item">
               <span class="skill-name">REST APIs</span>
@@ -223,12 +262,12 @@
           <h3>Bases de Datos</h3>
           <ul class="skill-list">
             <li class="skill-item">
-              <span class="skill-name">[Base de datos SQL]</span>
+              <span class="skill-name">MySQL / MariaDB</span>
               <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
             </li>
             <li class="skill-item">
-              <span class="skill-name">[Base de datos NoSQL]</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+              <span class="skill-name">SQL Server</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="64"></div></div>
             </li>
           </ul>
         </div>
@@ -240,15 +279,15 @@
           <ul class="skill-list">
             <li class="skill-item">
               <span class="skill-name">Git / GitHub</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="88"></div></div>
+              <div class="skill-bar"><div class="skill-fill" data-level="35"></div></div>
             </li>
             <li class="skill-item">
-              <span class="skill-name">[CI/CD / Cloud]</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="72"></div></div>
+              <span class="skill-name">AWS Cloud</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="43"></div></div>
             </li>
             <li class="skill-item">
-              <span class="skill-name">Docker</span>
-              <div class="skill-bar"><div class="skill-fill" data-level="68"></div></div>
+              <span class="skill-name">Raspberry Pi / ESP32</span>
+              <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
             </li>
           </ul>
         </div>
@@ -315,6 +354,31 @@
           </div>
         </div>
 
+        <!-- Job 2 (prácticas) -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">&#9830;</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="job-title">Practicante IoT — Industria 4.0</h3>
+              <span class="job-date">2025 (Prácticas Profesionales)</span>
+            </div>
+            <h4 class="job-company">&#9875; Kromberg &amp; Schubert México</h4>
+            <p class="job-location">&#9830; Prácticas profesionales · Sector automotriz / manufactura</p>
+            <ul class="job-duties">
+              <li>Implementación de soluciones IoT estratégicas en equipos de producción (máquinas Komax) con <strong>Raspberry Pi</strong> y <strong>ESP32</strong>.</li>
+              <li>Monitoreo y optimización en tiempo real de líneas de producción, respondiendo a requerimientos de Industria 4.0.</li>
+              <li>Superación de limitaciones de hardware tradicional creando un ecosistema inteligente que mejoró la eficiencia operativa.</li>
+            </ul>
+            <div class="job-tags">
+              <span class="tag-sm">IoT</span>
+              <span class="tag-sm">Raspberry Pi</span>
+              <span class="tag-sm">ESP32</span>
+              <span class="tag-sm">Industria 4.0</span>
+              <span class="tag-sm">Python</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -335,30 +399,30 @@
         <div class="edu-card reveal">
           <div class="edu-icon">&#127891;</div>
           <div class="edu-body">
-            <h3 class="edu-degree">[Grado / Título]</h3>
-            <h4 class="edu-school">[Nombre de la Institución]</h4>
-            <p class="edu-date">AAAA — AAAA</p>
-            <p class="edu-desc">[Especialidad, mención honorífica, o proyectos relevantes realizados durante los estudios.]</p>
+            <h3 class="edu-degree">Ingeniería en Sistemas Computacionales</h3>
+            <h4 class="edu-school">ITESI — Irapuato, Guanajuato</h4>
+            <p class="edu-date">2020 — 2026</p>
+            <p class="edu-desc">Especialidad en Redes. Proyectos destacados: sistema de telemedicina con Alexa e IoT, detección de objetos con ESP32-Cam y Python, y ecosistema de sensores con Raspberry Pi y MariaDB.</p>
           </div>
         </div>
 
         <div class="edu-card reveal">
           <div class="edu-icon">&#128218;</div>
           <div class="edu-body">
-            <h3 class="edu-degree">[Certificación / Curso]</h3>
-            <h4 class="edu-school">[Plataforma / Institución]</h4>
-            <p class="edu-date">AAAA</p>
-            <p class="edu-desc">[Descripción breve de la certificación y habilidades adquiridas.]</p>
+            <h3 class="edu-degree">Técnico en Mantenimiento Industrial</h3>
+            <h4 class="edu-school">CECyTEC — Irapuato, Guanajuato</h4>
+            <p class="edu-date">2017 — 2020</p>
+            <p class="edu-desc">Graduado con título técnico en mantenimiento de sistemas industriales. Proyecto final: vehículo autónomo seguidor de líneas para distribución de herramientas en estaciones de trabajo.</p>
           </div>
         </div>
 
         <div class="edu-card reveal">
           <div class="edu-icon">&#127942;</div>
           <div class="edu-body">
-            <h3 class="edu-degree">[Otra Certificación / Logro Académico]</h3>
-            <h4 class="edu-school">[Institución]</h4>
-            <p class="edu-date">AAAA</p>
-            <p class="edu-desc">[Descripción del logro o certificación adicional.]</p>
+            <h3 class="edu-degree">Certificaciones AWS Cloud</h3>
+            <h4 class="edu-school">Amazon Web Services</h4>
+            <p class="edu-date">2024</p>
+            <p class="edu-desc">AWS Cloud Practitioner Essentials · Fundamentos de Nube AWS · ¿Qué es la Nube? (04/2024). También: Técnico en reparación de laptops (2021) · Inglés B1.</p>
           </div>
         </div>
 
@@ -384,15 +448,15 @@
           <ul class="contact-list">
             <li>
               <span class="contact-icon">&#9993;</span>
-              <a href="mailto:tu@email.com">tu@email.com</a>
+              <a href="mailto:oscaralejandrovacalopez@gmail.com">oscaralejandrovacalopez@gmail.com</a>
             </li>
             <li>
               <span class="contact-icon">&#9742;</span>
-              <a href="tel:+520000000000">+52 000 000 0000</a>
+              <a href="tel:+524621009235">+52 462 100 9235</a>
             </li>
             <li>
               <span class="contact-icon">&#127758;</span>
-              <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/oscar-alejandro-vaca-lopez-90b275326/" target="_blank" rel="noopener">LinkedIn</a>
             </li>
             <li>
               <span class="contact-icon">&#9830;</span>
@@ -452,6 +516,7 @@
       <p class="footer-copy">
         &#9784; &copy; <span id="year"></span> Óscar Alejandro Vaca López · Todos los derechos reservados · Hecho con &#9829; y rum
       </p>
+      <p class="footer-updated">&#128197; Última actualización de información: 18 de abril de 2026</p>
     </div>
   </footer>
 

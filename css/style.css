@@ -1348,3 +1348,234 @@ body.cursor-hover #cursor {
   .hero-content { padding: 0; }
   #hero { min-height: auto; padding: 2rem 0; }
 }
+
+/* ──────────────────────────────────────────────────────────
+   PHOTO PLACEHOLDER — actual image support
+   ────────────────────────────────────────────────────────── */
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.photo-placeholder:has(img) {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  background: none;
+}
+
+/* ──────────────────────────────────────────────────────────
+   SCROLL PROGRESS BAR
+   ────────────────────────────────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--clr-sea), var(--clr-gold), var(--clr-gold-light));
+  z-index: 200;
+  transition: width 0.08s ease;
+  box-shadow: 0 0 10px rgba(201,162,39,0.7), 0 0 4px rgba(201,162,39,0.5);
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────────────────
+   REVEAL SIDE ANIMATIONS
+   ────────────────────────────────────────────────────────── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition: opacity var(--trans-slow), transform var(--trans-slow);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(45px);
+  transition: opacity var(--trans-slow), transform var(--trans-slow);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ──────────────────────────────────────────────────────────
+   ENHANCED ANIMATIONS
+   ────────────────────────────────────────────────────────── */
+
+/* Periodic glitch on hero last name */
+@keyframes glitch-subtle {
+  0%, 88%, 100% {
+    text-shadow: var(--glow-gold), 0 4px 20px rgba(0,0,0,0.8);
+    transform: none;
+  }
+  89% {
+    text-shadow: 3px 0 rgba(0,200,255,0.8), -3px 0 rgba(255,60,60,0.8), var(--glow-gold);
+    transform: skew(-1deg) translateX(-3px);
+  }
+  90% {
+    text-shadow: -3px 0 rgba(0,200,255,0.8), 3px 0 rgba(255,60,60,0.8), var(--glow-gold);
+    transform: skew(1deg) translateX(3px);
+  }
+  91% {
+    text-shadow: 1px 0 rgba(0,200,255,0.4), var(--glow-gold);
+    transform: skew(-0.3deg);
+  }
+  92% { text-shadow: var(--glow-gold), 0 4px 20px rgba(0,0,0,0.8); transform: none; }
+}
+
+.hero-title .line2 { animation: glitch-subtle 9s ease-in-out infinite; }
+
+/* Pulsing gold glow on section titles */
+@keyframes golden-pulse {
+  0%, 100% { text-shadow: var(--glow-gold); }
+  50%       { text-shadow: 0 0 30px rgba(201,162,39,0.9), 0 0 65px rgba(201,162,39,0.35); }
+}
+.section-title { animation: golden-pulse 3s ease-in-out infinite; }
+
+/* Typing cursor for hero subtitle */
+.typing-cursor::after {
+  content: '|';
+  color: var(--clr-gold);
+  animation: cursor-blink 0.8s step-end infinite;
+  margin-left: 1px;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Button ripple */
+@keyframes ripple-anim {
+  to { transform: scale(3); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   PDF DOWNLOAD STRIP
+   ────────────────────────────────────────────────────────── */
+.pdf-download-strip {
+  position: relative;
+  max-width: 580px;
+  border: var(--border-gold);
+  background: rgba(255,255,255,0.03);
+  padding: 1.5rem 1.8rem 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.pdf-download-strip::before {
+  content: '— DESCARGAR CV —';
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--clr-deep-navy);
+  padding: 0 0.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--clr-gold-dark);
+  white-space: nowrap;
+}
+
+.pdf-download-card {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(201,162,39,0.15);
+  padding: 0.75rem 0.9rem;
+  transition: border-color var(--trans-fast), background var(--trans-fast), transform var(--trans-fast);
+  flex: 1;
+  min-width: 185px;
+}
+.pdf-download-card:hover {
+  border-color: rgba(201,162,39,0.45);
+  background: rgba(201,162,39,0.06);
+  transform: translateY(-2px);
+}
+
+.pdf-file-icon { width: 28px; height: 34px; flex-shrink: 0; }
+
+.pdf-flag   { font-size: 1.1rem; line-height: 1; }
+.pdf-label  {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  color: var(--clr-parchment-dk);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pdf-lang-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.3);
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--clr-gold);
+  text-transform: uppercase;
+}
+.pdf-lang-en {
+  background: rgba(44,95,110,0.15);
+  border-color: rgba(44,95,110,0.4);
+  color: var(--clr-sea-light);
+}
+.pdf-download-btn {
+  padding: 0.5rem 0.85rem !important;
+  font-size: 0.75rem !important;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.pdf-divider {
+  color: var(--clr-gold-dark);
+  opacity: 0.5;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* ──────────────────────────────────────────────────────────
+   FOOTER — LAST UPDATED
+   ────────────────────────────────────────────────────────── */
+.footer-updated {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: rgba(201,162,39,0.45);
+  letter-spacing: 0.08em;
+}
+
+/* ──────────────────────────────────────────────────────────
+   CARD TILT — smooth transition on leave
+   ────────────────────────────────────────────────────────── */
+.skill-card, .edu-card { will-change: transform; }
+
+/* ──────────────────────────────────────────────────────────
+   RESPONSIVE IMPROVEMENTS
+   ────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .about-grid    { gap: 2.5rem; }
+  .contact-grid  { gap: 2.5rem; }
+}
+
+@media (max-width: 900px) {
+  .pdf-download-strip { max-width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .pdf-download-strip {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 1.3rem 1rem;
+  }
+  .pdf-divider   { transform: rotate(90deg); }
+  .pdf-download-card { width: 100%; min-width: unset; }
+}
+
+@media (max-width: 480px) {
+  :root         { font-size: 15px; }
+  .section      { padding: calc(var(--section-pad) * 0.75) 0.5rem; }
+  .container    { padding: 0 1rem; }
+  .about-info   { font-size: 0.88rem; }
+  .job-duties li { font-size: 0.88rem; }
+  .edu-card     { flex-direction: column; gap: 0.8rem; }
+  .hero-title   { font-size: clamp(1.8rem, 8vw, 3.5rem) !important; }
+  .pdf-download-strip { margin-top: 0.5rem; }
+}

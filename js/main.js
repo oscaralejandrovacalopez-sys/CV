@@ -500,6 +500,102 @@ function showToast(message, type = 'info') {
 
 
 /* ──────────────────────────────────────────────────────────
+   14. SCROLL PROGRESS BAR
+   ────────────────────────────────────────────────────────── */
+(function initProgressBar() {
+  const bar = document.getElementById('progress-bar');
+  if (!bar) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width  = pct + '%';
+  }, { passive: true });
+})();
+
+
+/* ──────────────────────────────────────────────────────────
+   15. BUTTON RIPPLE EFFECT
+   ────────────────────────────────────────────────────────── */
+(function initRipple() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect   = this.getBoundingClientRect();
+      const size   = Math.max(rect.width, rect.height);
+      const ripple = document.createElement('span');
+      ripple.style.cssText = `
+        position:absolute;border-radius:50%;
+        width:${size}px;height:${size}px;
+        left:${e.clientX - rect.left - size / 2}px;
+        top:${e.clientY - rect.top  - size / 2}px;
+        background:rgba(255,255,255,0.25);
+        transform:scale(0);
+        animation:ripple-anim 0.55s ease-out forwards;
+        pointer-events:none;z-index:0;
+      `;
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    });
+  });
+})();
+
+
+/* ──────────────────────────────────────────────────────────
+   16. 3D TILT ON CARDS (desktop only)
+   ────────────────────────────────────────────────────────── */
+(function initCardTilt() {
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  document.querySelectorAll('.skill-card, .edu-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'box-shadow var(--trans-mid)';
+    });
+    card.addEventListener('mousemove', e => {
+      const rect  = card.getBoundingClientRect();
+      const rotX  = ((e.clientY - rect.top  - rect.height / 2) / (rect.height / 2)) * -6;
+      const rotY  = ((e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2)) *  6;
+      card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform var(--trans-mid), box-shadow var(--trans-mid)';
+      card.style.transform  = '';
+    });
+  });
+})();
+
+
+/* ──────────────────────────────────────────────────────────
+   17. TYPING EFFECT — hero subtitle
+   ────────────────────────────────────────────────────────── */
+(function initTypingEffect() {
+  const subtitle = document.querySelector('.hero-subtitle');
+  if (!subtitle) return;
+
+  const fullText = subtitle.textContent.trim();
+  subtitle.textContent = '';
+  subtitle.classList.add('typing-cursor');
+
+  function startTyping() {
+    let i = 0;
+    (function typeChar() {
+      if (i < fullText.length) {
+        subtitle.textContent += fullText[i++];
+        setTimeout(typeChar, Math.random() * 35 + 25);
+      } else {
+        setTimeout(() => subtitle.classList.remove('typing-cursor'), 2500);
+      }
+    })();
+  }
+
+  // Start after the loading screen fades out (~2.3 s)
+  setTimeout(startTyping, 2300);
+})();
+
+
+/* ──────────────────────────────────────────────────────────
    14. TYPING EFFECT — hero eyebrow text
    ────────────────────────────────────────────────────────── */
 (function initTyping() {

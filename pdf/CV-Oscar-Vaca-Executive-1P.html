@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Ejecutivo 1 Pagina | Oscar Alejandro Vaca Lopez</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+
+    :root {
+      --ink: #102134;
+      --muted: #4a5e71;
+      --accent: #0f6a88;
+      --line: #d4e0ea;
+      --chip-bg: #eef7fc;
+      --chip-ink: #0c6282;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.35;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sheet {
+      max-width: 190mm;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px;
+      background: linear-gradient(140deg, #ffffff 0%, #f7fbff 100%);
+    }
+
+    .head {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .photo {
+      width: 78px;
+      height: 78px;
+      border-radius: 11px;
+      overflow: hidden;
+      border: 1px solid #cddbe5;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #0f4a67;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 3px 0 5px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.55px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 10px;
+      font-size: 10.8px;
+      color: var(--muted);
+    }
+
+    .meta a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      gap: 9px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      margin-bottom: 7px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      background: #fff;
+    }
+
+    .card:last-child { margin-bottom: 0; }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.65px;
+      color: #0f5f7c;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 11.3px;
+      color: var(--ink);
+    }
+
+    .sub {
+      margin: 1px 0 4px;
+      font-size: 9.9px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 4px;
+      font-size: 10.5px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 14px;
+    }
+
+    li {
+      margin: 0 0 3px;
+      font-size: 10.4px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-size: 9.3px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid #d2e5f2;
+      color: var(--chip-ink);
+      background: var(--chip-bg);
+      font-weight: 700;
+    }
+
+    .mini {
+      margin-bottom: 6px;
+    }
+
+    .mini:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 6px;
+      text-align: right;
+      color: #607487;
+      font-size: 9.7px;
+    }
+
+    @media print {
+      .sheet { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <div class="photo">
+        <img src="../img/Yo.jpg" alt="Oscar Vaca" />
+      </div>
+      <div>
+        <h1>Oscar Alejandro Vaca Lopez</h1>
+        <p class="subtitle">CV Ejecutivo 1 Pagina | IT Support | SysAdmin Jr | IoT Engineer Jr</p>
+        <div class="meta">
+          <span>Irapuato, Guanajuato, Mexico</span>
+          <span>+52 462 100 9235</span>
+          <a href="mailto:oscaralejandrovacalopez@gmail.com">oscaralejandrovacalopez@gmail.com</a>
+          <a href="https://www.linkedin.com/in/oscar-alejandro-vaca-lopez-90b275326/">LinkedIn</a>
+          <a href="https://github.com/oscaralejandrovacalopez-sys">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <section class="card">
+          <h2>Perfil</h2>
+          <p>
+            Ingeniero en Sistemas orientado a soporte IT, continuidad operativa y automatizacion.
+            Experiencia en redes, endpoints, ERP Odoo y soluciones IoT en entorno productivo.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Competencias Clave</h2>
+          <div class="chips">
+            <span class="chip">IT Support</span>
+            <span class="chip">Troubleshooting</span>
+            <span class="chip">Networking</span>
+            <span class="chip">Odoo ERP</span>
+            <span class="chip">Python</span>
+            <span class="chip">Raspberry Pi</span>
+            <span class="chip">ESP32</span>
+            <span class="chip">AWS Fundamentals</span>
+            <span class="chip">SQL</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Habilidades Tecnicas</h2>
+          <div class="mini">
+            <h3>Soporte e Infraestructura</h3>
+            <p>Soporte a usuarios, configuracion de PCs/impresoras, monitoreo, red LAN/WiFi y enlaces.</p>
+          </div>
+          <div class="mini">
+            <h3>Desarrollo y Sistemas</h3>
+            <p>Python, Odoo, HTML/CSS/JS/PHP, REST APIs, MySQL/MariaDB/SQL Server.</p>
+          </div>
+          <div class="mini">
+            <h3>Soft Skills</h3>
+            <p>Comunicacion, resolucion de problemas, trabajo en equipo, liderazgo y adaptabilidad.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Educacion y Certs</h2>
+          <ul>
+            <li>Ing. en Sistemas Computacionales, ITESI (2020-2026), esp. Redes.</li>
+            <li>Tec. en Mantenimiento Industrial, CECyTEC (2017-2020).</li>
+            <li>AWS Cloud Practitioner Essentials, Cloud Fundamentals (2024).</li>
+            <li>Tecnico en reparacion de laptops (2021) | Ingles B1.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section class="card">
+          <h2>Experiencia Profesional</h2>
+
+          <div class="mini">
+            <h3>Ingeniero en Sistemas / IT</h3>
+            <p class="sub">Comercializacion Diem del Bajio S.A. de C.V. | May 2025 - Feb 2026</p>
+            <ul>
+              <li>Soporte diario de infraestructura, endpoints y monitoreo para mantener continuidad operativa.</li>
+              <li>Diagnostico y solucion de incidencias de red con APs, antenas y enlaces de comunicacion.</li>
+              <li>Soporte funcional a Odoo con mejoras de modulos y flujos operativos.</li>
+              <li>Automatizacion de tareas internas con scripts Python.</li>
+              <li>Implementacion de soluciones con Raspberry Pi en necesidades especificas de planta.</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>Practicante IoT - Industria 4.0</h3>
+            <p class="sub">Kromberg &amp; Schubert Mexico | 2025</p>
+            <ul>
+              <li>Integracion de Raspberry Pi y ESP32 en equipos Komax para monitoreo industrial.</li>
+              <li>Optimizado de lineas de produccion mediante monitoreo en tiempo real.</li>
+              <li>Diseno de ecosistema IoT para mejorar eficiencia operativa.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Proyectos Relevantes</h2>
+          <ul>
+            <li>Telemedicina con Alexa e IoT.</li>
+            <li>Deteccion de objetos con ESP32-Cam y Python.</li>
+            <li>Ecosistema de sensores con Raspberry Pi y MariaDB.</li>
+            <li>Vehiculo autonomo seguidor de lineas para logistica interna.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Objetivo Profesional</h2>
+          <p>
+            Integrarme en una posicion de IT Support, SysAdmin Jr o IoT Engineer Jr donde pueda fortalecer
+            confiabilidad operativa, reducir friccion tecnica y escalar automatizaciones utiles para el negocio.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <p class="footer">Formato ejecutivo de 1 pagina | Actualizado abril 2026</p>
+  </div>
+</body>
+</html>

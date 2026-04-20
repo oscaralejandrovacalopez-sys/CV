@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative CV | Oscar Alejandro Vaca Lopez (EN)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    :root {
+      --ink: #102332;
+      --muted: #446074;
+      --deep: #0f425d;
+      --teal: #14778d;
+      --mint: #edf7f9;
+      --sand: #f7f1e6;
+      --line: #d2e2ea;
+      --chip: #ecf7fc;
+      --chip-ink: #0f6287;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      line-height: 1.42;
+    }
+
+    .page {
+      max-width: 190mm;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20, 119, 141, 0.22), rgba(20, 119, 141, 0));
+      pointer-events: none;
+    }
+
+    .orb.o1 { top: -90px; right: -80px; }
+    .orb.o2 { bottom: 100px; left: -90px; }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(118deg, #f8fdff 0%, var(--mint) 48%, var(--sand) 100%);
+      margin-bottom: 12px;
+    }
+
+    .photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(16, 35, 50, 0.14);
+      box-shadow: 0 8px 22px rgba(16, 35, 50, 0.12);
+      background: #f5f8fa;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 27px;
+      letter-spacing: 0.2px;
+      color: var(--deep);
+    }
+
+    .title {
+      margin: 4px 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.55px;
+      text-transform: uppercase;
+      color: #0f6e83;
+    }
+
+    .target {
+      margin: 0 0 6px;
+      font-size: 11.2px;
+      color: #33596d;
+      font-weight: 600;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 12px;
+      font-size: 11.4px;
+      color: var(--muted);
+    }
+
+    .meta a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 33% 67%;
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    h2 {
+      margin: 0 0 7px;
+      font-size: 12.2px;
+      letter-spacing: 0.65px;
+      text-transform: uppercase;
+      color: var(--deep);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 12.8px;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 0 0 6px;
+      font-size: 11.5px;
+    }
+
+    .sub {
+      margin: 2px 0 6px;
+      font-size: 10.8px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    li {
+      margin: 0 0 4px;
+      font-size: 11.3px;
+    }
+
+    .item { margin-bottom: 10px; }
+    .item:last-child { margin-bottom: 0; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      background: var(--chip);
+      color: var(--chip-ink);
+      border: 1px solid #d0e6f3;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .skill-block {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 7px;
+      background: linear-gradient(140deg, #ffffff 0%, #f6fbff 100%);
+    }
+
+    .skill-block h4 {
+      margin: 0 0 4px;
+      font-size: 10.8px;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.45px;
+    }
+
+    .skill-block ul {
+      margin: 0;
+      padding-left: 13px;
+    }
+
+    .skill-block li {
+      margin: 0 0 3px;
+      font-size: 10.8px;
+    }
+
+    .footer {
+      margin-top: 6px;
+      text-align: right;
+      font-size: 10px;
+      color: #5c7484;
+    }
+
+    @media print {
+      .page { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+
+    <header class="hero">
+      <div class="photo">
+        <img src="../img/Yo.jpg" alt="Oscar Vaca" />
+      </div>
+      <div>
+        <h1>Oscar Alejandro Vaca Lopez</h1>
+        <p class="title">Systems Engineer | IT Support | Automation</p>
+        <p class="target">Target Roles: IT Support Specialist, Junior SysAdmin, IoT Engineer</p>
+        <div class="meta">
+          <span>Irapuato, Guanajuato, Mexico</span>
+          <span>+52 462 100 9235</span>
+          <a href="mailto:oscaralejandrovacalopez@gmail.com">oscaralejandrovacalopez@gmail.com</a>
+          <a href="https://www.linkedin.com/in/oscar-alejandro-vaca-lopez-90b275326/">LinkedIn</a>
+          <a href="https://github.com/oscaralejandrovacalopez-sys">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside>
+        <section class="card">
+          <h2>Professional Summary</h2>
+          <p>
+            Systems Engineer with hands-on experience supporting production operations,
+            business systems and network infrastructure in high-demand environments.
+          </p>
+          <p>
+            Strong fit for IT Support and Junior SysAdmin roles through incident troubleshooting,
+            endpoint administration, connectivity stabilization and service continuity.
+          </p>
+          <p>
+            IoT project background with Raspberry Pi and ESP32, plus Python automation
+            to streamline operational workflows.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Technical Skill Set</h2>
+          <div class="skills-grid">
+            <div class="skill-block">
+              <h4>IT Support</h4>
+              <ul>
+                <li>Incident troubleshooting</li>
+                <li>PC, printer and endpoint setup</li>
+                <li>User support and issue resolution</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Networking</h4>
+              <ul>
+                <li>WiFi and access points</li>
+                <li>Antenna links and connectivity</li>
+                <li>Network diagnostics</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>Systems &amp; Dev</h4>
+              <ul>
+                <li>Python scripting</li>
+                <li>Odoo ERP support</li>
+                <li>REST API usage</li>
+              </ul>
+            </div>
+            <div class="skill-block">
+              <h4>IoT &amp; Data</h4>
+              <ul>
+                <li>Raspberry Pi / ESP32</li>
+                <li>MySQL / MariaDB / SQL Server</li>
+                <li>AWS Cloud fundamentals</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Core Strengths</h2>
+          <div class="chips">
+            <span class="chip">Problem Solving</span>
+            <span class="chip">Ownership</span>
+            <span class="chip">Clear Communication</span>
+            <span class="chip">Continuous Learning</span>
+            <span class="chip">Team Collaboration</span>
+            <span class="chip">Adaptability</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Certifications</h2>
+          <ul>
+            <li>AWS Cloud Practitioner Essentials (2024)</li>
+            <li>AWS Cloud Fundamentals (2024)</li>
+            <li>What is Cloud Computing? AWS (04/2024)</li>
+            <li>Laptop Repair Technician (2021)</li>
+            <li>English B1</li>
+          </ul>
+        </section>
+      </aside>
+
+      <section>
+        <section class="card">
+          <h2>Professional Experience</h2>
+
+          <article class="item">
+            <h3>Systems Engineer / IT</h3>
+            <p class="sub">Comercializacion Diem del Bajio S.A. de C.V. | May 2025 - February 2026 | Full-time</p>
+            <ul>
+              <li>Delivered day-to-day IT support for end users, keeping workstations, printers and monitoring devices operational.</li>
+              <li>Diagnosed and resolved network incidents, including access point configuration and connectivity stabilization.</li>
+              <li>Supported Odoo operations through functional adjustments and module-level improvements.</li>
+              <li>Set up warehouse antenna links and restored communication flows during service interruptions.</li>
+              <li>Built Python scripts to automate repetitive internal tasks and reduce manual workload.</li>
+              <li>Implemented Raspberry Pi based solutions for specific shop-floor and operational needs.</li>
+              <li>Worked closely with logistics workflows to align technical proposals with business priorities.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">IT Support</span>
+              <span class="chip">Networking</span>
+              <span class="chip">Odoo</span>
+              <span class="chip">Python</span>
+              <span class="chip">Raspberry Pi</span>
+              <span class="chip">Operations IT</span>
+            </div>
+          </article>
+
+          <article class="item">
+            <h3>IoT Intern - Industry 4.0</h3>
+            <p class="sub">Kromberg &amp; Schubert Mexico | 2025 (Professional Internship)</p>
+            <ul>
+              <li>Implemented IoT solutions on Komax production machines with Raspberry Pi and ESP32 platforms.</li>
+              <li>Enabled real-time monitoring and process optimization aligned with Industry 4.0 initiatives.</li>
+              <li>Designed an intelligent hardware/software ecosystem to improve operational efficiency.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">IoT Engineering</span>
+              <span class="chip">ESP32</span>
+              <span class="chip">Raspberry Pi</span>
+              <span class="chip">Python</span>
+              <span class="chip">Industry 4.0</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <h2>Education</h2>
+          <article class="item">
+            <h3>B.S. in Computer Systems Engineering</h3>
+            <p class="sub">ITESI - Irapuato, Guanajuato | 2020 - 2026</p>
+            <p>
+              Networking specialization. Projects include telemedicine with Alexa and IoT,
+              object detection with ESP32-Cam and Python, and a Raspberry Pi + MariaDB sensor ecosystem.
+            </p>
+          </article>
+          <article class="item">
+            <h3>Industrial Maintenance Technician</h3>
+            <p class="sub">CECyTEC - Irapuato, Guanajuato | 2017 - 2020</p>
+            <p>
+              Technical degree in industrial systems maintenance.
+              Final project: autonomous line-following vehicle for tool distribution between workstations.
+            </p>
+          </article>
+        </section>
+
+        <section class="card">
+          <h2>Contact</h2>
+          <p>Email: oscaralejandrovacalopez@gmail.com</p>
+          <p>Phone: +52 462 100 9235</p>
+          <p>LinkedIn: linkedin.com/in/oscar-alejandro-vaca-lopez-90b275326</p>
+          <p>GitHub: github.com/oscaralejandrovacalopez-sys</p>
+        </section>
+      </section>
+    </main>
+
+    <p class="footer">Creative PDF version tailored for IT Support, SysAdmin and IoT Engineer applications | Updated April 2026</p>
+  </div>
+</body>
+</html>
